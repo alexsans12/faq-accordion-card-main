@@ -1,0 +1,245 @@
+:root {
+    --Soft_violet: hsl(273, 75%, 66%);
+    --Soft_blue: hsl(240, 73%, 65%);
+
+    --Very_dark_desaturated_blue: hsl(238, 29%, 16%);
+    --Soft_red: hsl(14, 88%, 65%);
+
+    --Very_dark_grayish_blue: hsl(237, 12%, 33%);
+    --Dark_grayish_blue: hsl(240, 6%, 50%);
+
+    --Light_grayish_blue: hsl(240, 5%, 91%);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: 'Kumbh Sans', sans-serif;
+    background: var(--Soft_violet);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, var(--Soft_violet)), color-stop(150%, var(--Soft_blue)));
+    background: -webkit-linear-gradient(top, var(--Soft_violet) 0%, var(--Soft_blue) 100%);
+    background: -o-linear-gradient(top, var(--Soft_violet) 0%, var(--Soft_blue) 100%);
+    background: -ms-linear-gradient(top, var(--Soft_violet) 0%, var(--Soft_blue) 100%);
+    background: linear-gradient(to bottom, var(--Soft_violet) 0%, var(--Soft_blue) 100%);
+}
+
+.card {
+    min-width: 300px;
+    margin: 7.5rem 1rem 2rem;
+    background-color: white;
+    border-radius: 20px;
+    -webkit-box-shadow: 0px 15px 40px -10px #0000009d;
+    -moz-box-shadow: 0px 15px 40px -10px #0000009d;
+    box-shadow: 0px 15px 40px -10px #0000009d;
+}
+
+@media screen and (min-width: 350px) {
+    .card {
+        min-width: 325px;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .card{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0;
+        min-width: 650px;
+        padding: 40px 60px 40px 0;
+        background-image: url("/images/bg-pattern-desktop.svg");
+        background-position: top -295px left -575px;
+        background-repeat: no-repeat;
+        position: relative;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .card {
+        min-width: 840px;
+        padding-right: 80px;
+    }
+}
+
+.card__header {
+    text-align: center;
+    height: 110px;
+    position: relative;
+    background: url('../images/bg-pattern-mobile.svg') center -5px no-repeat;
+}
+
+.card__header::before {
+    content: url('../images/illustration-woman-online-mobile.svg');
+    position: absolute;
+    top: -110px;
+    left: 4.5%;
+}
+
+.card__header-box {
+    display: none;
+}
+
+@media screen and (min-width: 800px) {
+    .card__header {
+        position: initial;
+        overflow: hidden;
+        background: transparent;
+        height: 370px;
+        width: 60%;
+    }
+    
+    .card__header::before {
+        content: url('../images/illustration-woman-online-desktop.svg');
+        position: relative;
+        top: 0px;
+        left: -80px;
+    }
+
+    .card__header-box {
+        display: block;
+        position: absolute;
+        width: 170px;
+        top: 200px;
+        left: -80px;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .card__header::before {
+        left: -100px;
+    }
+    
+    .card__header-box {
+        left: -85px;
+    }
+}
+
+.card__main {
+    margin: 0 25px;
+    font-size: 12px;
+    color: var(--Very_dark_grayish_blue);
+}
+
+@media screen and (min-width: 800px) {
+    .card__main {
+        height: 400px;
+        margin: 0;
+        width: 40%
+    }
+}
+
+.card__main-title {
+    color: var(--Very_dark_desaturated_blue);
+    text-align: center;
+    font-size: 2.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 20px 0;
+}
+
+@media screen and (min-width: 800px) {
+    .card__main-title {
+        text-align: left;
+    }
+}
+
+.card__article {
+    margin: 10px 0;
+    border-bottom: 1px solid var(--Light_grayish_blue);
+}
+
+@media screen and (min-width: 800px) {
+    .card__article {
+        min-width: 230px;
+        margin: 5px 0;
+    }
+}
+
+.card__article:last-child {
+    margin-bottom: 50px;
+}
+
+.card__article-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card__article-header:hover {
+    cursor: pointer;
+}
+
+.card__article-header--bold {
+    font-weight: 700;
+}
+
+.card__article-header:hover {
+    color: var(--Soft_red);
+}
+
+.card__article-header--bold:hover {
+    color: var(--Very_dark_grayish_blue);
+}
+
+
+@keyframes rotateIcon {
+    0% {
+        transform: rotate(0deg);
+    } 
+
+    100% {
+        transform: rotate(180deg);
+    }
+}
+
+@keyframes rotateIconReverse {
+    0% {
+        transform: rotate(180deg);
+    } 
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.card__article-icon {
+    width: 10px;
+    -webkit-animation: rotateIconReverse .5s normal;/* Safari 4+ */
+    -moz-animation: rotateIconReverse .5s normal;/* Fx 5+ */
+    animation: rotateIconReverse .5s normal;/* IE 10+, Fx 29+ */
+}
+
+.card__article-icon--rotate {
+    transform: rotate(180deg);
+    -webkit-animation: rotateIcon .5s normal;/* Safari 4+ */
+    -moz-animation: rotateIcon .5s normal;/* Fx 5+ */
+    -o-animation: rotateIcon .5s normal;/* Opera 12+ */
+}
+
+.card__article-text {
+    display: none;
+    width: 220px;
+    margin: 0 25px 20px 0;
+    line-height: 20px;
+    color: var(--Dark_grayish_blue);
+}
+
+@media screen and (min-width: 350px) {
+    .card__article-text {
+        width: 250px;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .card__article-text {
+        width: 230px;
+        margin: 0 0 10px 0;
+    }
+}
+
+.card__article-text--show {
+    display: block;
+}
